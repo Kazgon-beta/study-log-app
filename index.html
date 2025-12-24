@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+     <title>学習ログ管理アプリ</title>
+     <meta name="description" content="学習時間や内容をシンプルに記録できるアプリ">
+     <!--ビューポート設定-->
+     <meta name ="viewport" content="width=device-width,initial-scale=1.0">
+     <!---リセットCSS-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+     <link rel="stylesheet" href="css/style.css">
+     <script src="js/script.js" defer></script>
+    </head>
+
+    <body>
+        <h1>学習ログ管理アプリ</h1>
+
+        <!--入力エリア-->
+        <section>
+            <h2>学習内容の入力</h2>
+
+            <div>
+                <label>
+                    日付<br>
+                    <input type="date" id="dateInput">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    学習内容<br>
+                    <input type="text" id="topicInput" placeholder="例:JavaScript 配列">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    学習時間(分)<br>
+                    <input type="number" id="timeInput" placeholder="例：60">
+                </label>
+            </div>
+
+            <button id="addButton">追加</button>
+        </section>
+
+        <hr>
+
+        <!--集計エリア-->
+        <section>
+            <h2>合計学習時間</h2>
+            <p>
+                合計：<span id="totalTime">0</span>分
+            </p>
+        </section>
+
+        <hr>
+
+        <!--一覧エリア-->
+        <section>
+            <h2>学習ログ一覧</h2>
+            <ul id="logList"></ul>
+        </section>
+
+    </body>
+</html>
