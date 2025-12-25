@@ -7,18 +7,21 @@ const timeInput = document.querySelector('#timeInput');
 const addButton = document.querySelector('#addButton');
 
 //表示エリア
-const totalTime = document.querySelector('#totalTime');
+const totalAll = document.querySelector('#totalAll');
+const totalMonth = document.querySelector('#totalMonth');
+const totalWeek = document.querySelector('#totalWeek');
+
+//一覧エリア
 const logList = document.querySelector('#logList');
 
 //配列
 let logs = [];
 
 function loadLogs(){
-    const saveLogs = localStorage.getItem('logs');
+    const savedLogs = localStorage.getItem('logs');
 
-    if(saveLogs){
-        logs = JSON.parse(saveLogs);
-        rendeerLogs();
+    if(savedLogs){
+        logs = JSON.parse(savedLogs);
     }
 }
 
@@ -42,9 +45,8 @@ addButton.addEventListener('click', () => {
     //保存する
     saveLogs();
 
-    //console.log(logs);
     //表示を更新
-    rendeerLogs();
+    renderAll();
 
     //入力欄を空にする
     dateInput.value='';
@@ -53,12 +55,9 @@ addButton.addEventListener('click', () => {
 });
 
 //描画用関数
-function rendeerLogs(){
+function renderLogs(){
     //一覧表示する場所
     logList.innerHTML = '';
-
-    //合計時間をリセット
-    let total = 0;
 
     //ログを一つずつ取り出す
     logs.forEach((log) =>{
@@ -70,18 +69,62 @@ function rendeerLogs(){
         
         //画面に追加
         logList.appendChild(li);
-
-        //合計時間を加算
-        total += log.time;
-
     });
-
-    //合計時間を画面に表示
-    totalTime.textContent = total;
 }
+
+//1日のミリ秒数
+const MS_PER_DAY=1000*60*60*24;
+
+function sumTimes(targetLogs){
+    //指定されたログ配列のtimeを合計する
+    return targetLogs.reduce((total,log) => total + log.time,0);
+}
+
+function isSameMonth(a,b){
+    //a,bが同じ「年・月」か
+    return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth();
+}
+
+function daysDiff(from,to){
+    //from-to の「日数差」を返す（小数あり）
+    return(from - to)/MS_PER_DAY
+}
+
+function renderDashboard(){
+    const today = new Date();
+
+    //総合学習時間
+    const sumAll = sumTimes(logs);
+
+    //今月の学習時間
+    const monthLogs = logs.filter((log) =>{
+        const logDate = new Date(log.date);
+        return isSameMonth(logDate,today);
+    });
+    const sumMonth =sumTimes(monthLogs);
+
+    //直近7日間の学習時間
+    const weekLogs = logs.filter((log) => {
+        const logDate = new Date(log.date);
+        return daysDiff(today,logDate) <= 7;
+    });
+    const sumWeek =sumTimes(weekLogs);
+
+    //表示
+    totalAll.textContent = sumAll;
+    totalMonth.textContent = sumMonth;
+    totalWeek.textContent = sumWeek;
+}
+
+function renderAll(){
+    renderLogs();
+    renderDashboard();
+}
+
 
 function saveLogs(){
     localStorage.setItem('logs',JSON.stringify(logs));
 }
 
 loadLogs();
+renderAll();
