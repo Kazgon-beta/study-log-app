@@ -29,7 +29,14 @@
             <div>
                 <label>
                     学習内容<br>
-                    <input type="text" id="topicInput" placeholder="例:JavaScript 配列">
+                    <input type="text" id="leaningContentInput" placeholder="JS、ウェブアプリ開発">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    学習概要<br>
+                    <textarea id="topicInput" placeholder="例:JavaScriptで学習管理アプリを制作。学習時間の表示に苦戦した。"></textarea>
                 </label>
             </div>
 
@@ -46,7 +53,7 @@
         <hr>
 
         <!--集計エリア-->
-        <section>
+        <section class="dashboard">
             <h2>学習ダッシュボード</h2>
             <p>
                 総合学習時間：<span id="totalAll">0</span>分
