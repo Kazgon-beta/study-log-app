@@ -1,5 +1,6 @@
 //入力欄
 const dateInput = document.querySelector('#dateInput');
+const contentInput = document.querySelector('#leaningContentInput')
 const topicInput = document.querySelector('#topicInput');
 const timeInput = document.querySelector('#timeInput');
 
@@ -27,6 +28,7 @@ function loadLogs(){
 
 addButton.addEventListener('click', () => {
     const date = dateInput.value;
+    const content =contentInput.value;
     const topic = topicInput.value;
     const time = Number(timeInput.value);
 
@@ -36,6 +38,7 @@ addButton.addEventListener('click', () => {
 
     const log = {
         date:date,
+        content:content,
         topic:topic,
         time:time
     }
@@ -50,6 +53,7 @@ addButton.addEventListener('click', () => {
 
     //入力欄を空にする
     dateInput.value='';
+    contentInput.value='';
     topicInput.value='';
     timeInput.value='';
 });
@@ -60,15 +64,31 @@ function renderLogs(){
     logList.innerHTML = '';
 
     //ログを一つずつ取り出す
-    logs.forEach((log) =>{
+    logs.forEach((log,index) =>{
         //li要素を作る
         const li = document.createElement('li');
 
         //表示する文字
-        li.textContent = `${log.date}|${log.topic}|${log.time}分`;
+        const text = document.createElement('span');
+        text.textContent = `${log.date}|${log.content}|${log.topic}|${log.time}分`;
+
+        //削除ボタン
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '削除';
+
+        //クリックされたらindexのログを消す
+        deleteButton.addEventListener('click',() => {
+            logs.splice(index,1);//配列から削除
+            saveLogs();//保存しなおして
+            renderAll();//ダッシュボードと一覧を更新
+        })
         
         //画面に追加
         logList.appendChild(li);
+        li.appendChild(text);
+        li.appendChild(deleteButton);
+        
+
     });
 }
 
