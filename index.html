@@ -13,7 +13,7 @@
     </head>
 
     <body>
-        <h1>学習ログ管理アプリ</h1>
+        <h1>1000時間修行メーター</h1>
 
         <!--入力エリア-->
         <section>
@@ -29,7 +29,7 @@
             <div>
                 <label>
                     学習内容<br>
-                    <input type="text" id="leaningContentInput" placeholder="JS、ウェブアプリ開発">
+                    <input type="text" id="learningContentInput" placeholder="JS、ウェブアプリ開発">
                 </label>
             </div>
 
@@ -55,14 +55,35 @@
         <!--集計エリア-->
         <section class="dashboard">
             <h2>学習ダッシュボード</h2>
+            <div class="goal-setting">
+                <h3>1000時間の目標設定</h3>
+
+                <label>
+                    期限日（いつまでに1000時間？）
+                    <input type="date" id="goalDateInput">
+                </label>
+
+                <p>
+                    必要ペース（目安）:
+                    1日<span id="pacePerDay">-</span>分/
+                    1週<span id="pacePerWeek">-</span>時間/
+                    1月<span id="pacePerMonth">-</span>時間
+                </p>
+
+                <p id="goalMessage"></p>
+            </div>
             <p>
-                総合学習時間：<span id="totalAll">0</span>分
+                総合学習時間：
+                <span id="totalAll">0</span>分
+                (1000時間まであと<span id="remain1000">0</span>時間)
             </p>
             <p>
                 今月の学習時間:<span id="totalMonth">0</span>分
+                (今月の目標達成まで<span id="remainMonth">-</span>時間)
             </p>
             <p>
                 直近7日間の学習時間:<span id="totalWeek">0</span>分
+                (今週は目標より<span id = "diffWeek">-</span>時間:<span id="commentWeek">-</span>)
             </p>
         </section>
 
