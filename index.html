@@ -9,6 +9,13 @@
     />
     <!--ビューポート設定-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--googleフォント-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap"
+      rel="stylesheet"
+    />
     <!---リセットCSS-->
     <link
       rel="stylesheet"
@@ -20,54 +27,63 @@
 
   <body>
     <h1>1000時間修行メーター</h1>
+    <p class="description">
+      シンプルに学習の記録を付けられる学習ログです。<br />
+      学校の授業の予習復習から、社会人の資格取得の学習まで、どんな場面でも活用できます。
+    </p>
 
     <!--入力エリア-->
     <section>
-      <h2>学習内容の入力</h2>
+      <h2 class="bar">学習内容の入力</h2>
+      <div class="inputData">
+        <div>
+          <label>
+            日付<br />
+            <input type="date" id="dateInput" />
+          </label>
+        </div>
+        <br />
 
-      <div>
-        <label>
-          日付<br />
-          <input type="date" id="dateInput" />
-        </label>
+        <div>
+          <label>
+            学習内容<br />
+            <input
+              type="text"
+              id="learningContentInput"
+              placeholder="国語：漢字の読み書き"
+            />
+          </label>
+        </div>
+        <br />
+
+        <div>
+          <label>
+            学習概要<br />
+            <textarea
+              id="topicInput"
+              placeholder="「代替」は「だいたい」と読むことが分かった。"
+            ></textarea>
+          </label>
+        </div>
+        <br />
+
+        <div>
+          <label>
+            学習時間(分)<br />
+            <input type="number" id="timeInput" placeholder="例：60" />
+          </label>
+        </div>
+        <br />
+
+        <button id="addButton">追加</button>
       </div>
-
-      <div>
-        <label>
-          学習内容<br />
-          <input
-            type="text"
-            id="learningContentInput"
-            placeholder="JS、ウェブアプリ開発"
-          />
-        </label>
-      </div>
-
-      <div>
-        <label>
-          学習概要<br />
-          <textarea
-            id="topicInput"
-            placeholder="例:JavaScriptで学習管理アプリを制作。学習時間の表示に苦戦した。"
-          ></textarea>
-        </label>
-      </div>
-
-      <div>
-        <label>
-          学習時間(分)<br />
-          <input type="number" id="timeInput" placeholder="例：60" />
-        </label>
-      </div>
-
-      <button id="addButton">追加</button>
     </section>
-
-    <hr />
+    <br />
+    <br />
 
     <!--集計エリア-->
     <section class="dashboard">
-      <h2>学習ダッシュボード</h2>
+      <h2 class="bar">学習ダッシュボード</h2>
       <div class="goal-setting">
         <h3>1000時間の目標設定</h3>
 
@@ -114,7 +130,7 @@
 
     <!--一覧エリア-->
     <section>
-      <h2>学習ログ一覧</h2>
+      <h2 class="bar">学習ログ一覧</h2>
       <ul id="logList"></ul>
     </section>
   </body>
