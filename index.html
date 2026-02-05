@@ -1,99 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-     <title>学習ログ管理アプリ</title>
-     <meta name="description" content="学習時間や内容をシンプルに記録できるアプリ">
-     <!--ビューポート設定-->
-     <meta name ="viewport" content="width=device-width,initial-scale=1.0">
-     <!---リセットCSS-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-     <link rel="stylesheet" href="css/style.css">
-     <script src="js/script.js" defer></script>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>学習ログ管理アプリ</title>
+    <meta
+      name="description"
+      content="学習時間や内容をシンプルに記録できるアプリ"
+    />
+    <!--ビューポート設定-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!---リセットCSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
 
-    <body>
-        <h1>1000時間修行メーター</h1>
+  <body>
+    <h1>1000時間修行メーター</h1>
 
-        <!--入力エリア-->
-        <section>
-            <h2>学習内容の入力</h2>
+    <!--入力エリア-->
+    <section>
+      <h2>学習内容の入力</h2>
 
-            <div>
-                <label>
-                    日付<br>
-                    <input type="date" id="dateInput">
-                </label>
-            </div>
+      <div>
+        <label>
+          日付<br />
+          <input type="date" id="dateInput" />
+        </label>
+      </div>
 
-            <div>
-                <label>
-                    学習内容<br>
-                    <input type="text" id="learningContentInput" placeholder="JS、ウェブアプリ開発">
-                </label>
-            </div>
+      <div>
+        <label>
+          学習内容<br />
+          <input
+            type="text"
+            id="learningContentInput"
+            placeholder="JS、ウェブアプリ開発"
+          />
+        </label>
+      </div>
 
-            <div>
-                <label>
-                    学習概要<br>
-                    <textarea id="topicInput" placeholder="例:JavaScriptで学習管理アプリを制作。学習時間の表示に苦戦した。"></textarea>
-                </label>
-            </div>
+      <div>
+        <label>
+          学習概要<br />
+          <textarea
+            id="topicInput"
+            placeholder="例:JavaScriptで学習管理アプリを制作。学習時間の表示に苦戦した。"
+          ></textarea>
+        </label>
+      </div>
 
-            <div>
-                <label>
-                    学習時間(分)<br>
-                    <input type="number" id="timeInput" placeholder="例：60">
-                </label>
-            </div>
+      <div>
+        <label>
+          学習時間(分)<br />
+          <input type="number" id="timeInput" placeholder="例：60" />
+        </label>
+      </div>
 
-            <button id="addButton">追加</button>
-        </section>
+      <button id="addButton">追加</button>
+    </section>
 
-        <hr>
+    <hr />
 
-        <!--集計エリア-->
-        <section class="dashboard">
-            <h2>学習ダッシュボード</h2>
-            <div class="goal-setting">
-                <h3>1000時間の目標設定</h3>
+    <!--集計エリア-->
+    <section class="dashboard">
+      <h2>学習ダッシュボード</h2>
+      <div class="goal-setting">
+        <h3>1000時間の目標設定</h3>
 
-                <label>
-                    期限日（いつまでに1000時間？）
-                    <input type="date" id="goalDateInput">
-                </label>
+        <label>
+          学習開始日
+          <input type="date" id="startDateInput" />
+        </label>
+        <br />
+        <label>
+          期限日（いつまでに1000時間？）
+          <input type="date" id="goalDateInput" />
+        </label>
 
-                <p>
-                    必要ペース（目安）:
-                    1日<span id="pacePerDay">-</span>分/
-                    1週<span id="pacePerWeek">-</span>時間/
-                    1月<span id="pacePerMonth">-</span>時間
-                </p>
+        <p>
+          必要ペース（目安）: 1日<span id="pacePerDay">-</span>分/ 1週<span
+            id="pacePerWeek"
+            >-</span
+          >時間/ 1月<span id="pacePerMonth">-</span>時間
+        </p>
 
-                <p id="goalMessage"></p>
-            </div>
-            <p>
-                総合学習時間：
-                <span id="totalAll">0</span>分
-                (1000時間まであと<span id="remain1000">0</span>時間)
-            </p>
-            <p>
-                今月の学習時間:<span id="totalMonth">0</span>分
-                (今月の目標達成まで<span id="remainMonth">-</span>時間)
-            </p>
-            <p>
-                直近7日間の学習時間:<span id="totalWeek">0</span>分
-                (今週は目標より<span id = "diffWeek">-</span>時間:<span id="commentWeek">-</span>)
-            </p>
-        </section>
+        <p id="goalMessage"></p>
+      </div>
+      <p>
+        総合学習時間：
+        <span id="totalAll">0</span>分 (1000時間まであと<span id="remain1000"
+          >0</span
+        >時間)
+      </p>
+      <p>
+        今月の学習時間:<span id="totalMonth">0</span>分 (今月の目標達成まで<span
+          id="remainMonth"
+          >-</span
+        >時間)
+      </p>
+      <p>
+        直近7日間の学習時間:<span id="totalWeek">0</span>分 (今週は目標より<span
+          id="diffWeek"
+          >-</span
+        >時間:<span id="commentWeek">-</span>)
+      </p>
+    </section>
 
-        <hr>
+    <hr />
 
-        <!--一覧エリア-->
-        <section>
-            <h2>学習ログ一覧</h2>
-            <ul id="logList"></ul>
-        </section>
-
-    </body>
+    <!--一覧エリア-->
+    <section>
+      <h2>学習ログ一覧</h2>
+      <ul id="logList"></ul>
+    </section>
+  </body>
 </html>
