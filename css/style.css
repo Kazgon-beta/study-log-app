@@ -1,49 +1,102 @@
-h1{
-    font-size: 40px;
+h1 {
+  font-size: 40px;
+  font-family: 'Yuji Boku', serif;
 }
 
-h2{
-    font-size:32px;
+h2 {
+  font-size: 32px;
+  color: white;
+  font-family: 'Yuji Boku', serif;
+}
+body {
+  background-color: rgb(241, 245, 231);
 }
 
-#topicInput{
-    width: 300px;
-    height: 50px;
+#topicInput {
+  width: 300px;
+  height: 50px;
 
-    /* 折り返し */
-     white-space: pre-wrap;
-    word-break: break-word;
+  /* 折り返し */
+  white-space: pre-wrap;
+  word-break: break-word;
 
-     /* 左上から入力 */
-    text-align: left;
-    vertical-align: top;
+  /* 左上から入力 */
+  text-align: left;
+  vertical-align: top;
 
-    /* 見た目調整（任意） */
-    padding: 8px;
-    font-size: 16px;
-    resize: none; 
+  /* 見た目調整（任意） */
+  padding: 8px;
+  font-size: 16px;
+  resize: none;
 }
 
-
-
-
-.dashboard p{
-  color: #706d7a;               
-  font-size: 20px;           
-  font-weight: 900;          
-  padding: 12px;             
+.dashboard p {
+  color: #302f33;
+  font-family: 'shippori mincho regular', serif;
+  font-size: 20px;
+  font-weight: 900;
+  padding: 12px;
 }
 
-
-#logList li{
-    background: #d6c3e6;
-    width:80%;
-    height:2rem;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding:10px 20px;
+#logList li {
+  background: #da8360;
+  width: 80%;
+  height: 2rem;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
 }
 
-#logList li button{
-    margin-left:auto;
+#logList li button {
+  margin-left: auto;
+}
+
+.description {
+  background: rgb(201, 200, 219);
+  font-family: 'Shippori Mincho', serif;
+}
+
+.yuji-boku-regular {
+  font-family: 'Yuji Boku', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.shippori-mincho-regular {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bar {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(50, 50, 54);
+  text-align: center;
+}
+
+.inputData {
+  width: (600px, 92%);
+  text-align: center;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+#addButton {
+  display: block;
+  margin: 0 auto;
+}
+
+.dashboard {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pageTop {
+  margin: 0 auto;
+  text-align: center;
 }
