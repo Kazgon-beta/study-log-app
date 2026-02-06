@@ -72,15 +72,31 @@ body {
   height: 50px;
   width: 100%;
   background-color: rgb(50, 50, 54);
+  text-align: center;
 }
 
 .inputData {
-  height: 250px;
-  width: 500px;
+  width: (600px, 92%);
   text-align: center;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 #addButton {
   display: block;
   margin: 0 auto;
+}
+
+.dashboard {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pageTop {
+  margin: 0 auto;
+  text-align: center;
 }

@@ -26,11 +26,13 @@
   </head>
 
   <body>
-    <h1>1000時間修行メーター</h1>
-    <p class="description">
-      シンプルに学習の記録を付けられる学習ログです。<br />
-      学校の授業の予習復習から、社会人の資格取得の学習まで、どんな場面でも活用できます。
-    </p>
+    <div class="pageTop">
+      <h1>1000時間修行メーター</h1>
+      <p class="description">
+        シンプルに学習の記録を付けられる学習ログです。<br />
+        学校の授業の予習復習から、社会人の資格取得の学習まで、どんな場面でも活用できます。
+      </p>
+    </div>
 
     <!--入力エリア-->
     <section>
@@ -42,7 +44,6 @@
             <input type="date" id="dateInput" />
           </label>
         </div>
-        <br />
 
         <div>
           <label>
@@ -54,7 +55,6 @@
             />
           </label>
         </div>
-        <br />
 
         <div>
           <label>
@@ -65,7 +65,6 @@
             ></textarea>
           </label>
         </div>
-        <br />
 
         <div>
           <label>
@@ -73,13 +72,10 @@
             <input type="number" id="timeInput" placeholder="例：60" />
           </label>
         </div>
-        <br />
 
         <button id="addButton">追加</button>
       </div>
     </section>
-    <br />
-    <br />
 
     <!--集計エリア-->
     <section class="dashboard">
